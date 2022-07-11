@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neo
+spec:
+  replicas: 
+  selector:
+    matchLabels:
+      app: neo
+  template:
+    metadata:
+      labels:
+        app: neo
+    spec:
+      containers:
+      - name: neo
+        image: noicecurse.jfrog.io/default-docker-local/noicecurse/neo:1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: neo
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+  selector:
+    app: neo

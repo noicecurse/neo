@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "neo"
+  description: "neo"  
+  annotations:
+    github.com/project-slug: noicecurse/neo
+spec:
+  type: service
+  owner: "guests"
+  lifecycle: experimental
